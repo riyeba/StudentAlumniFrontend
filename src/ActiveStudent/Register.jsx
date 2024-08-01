@@ -339,6 +339,7 @@ function Register() {
   const [FamilyinSaudi, setFamilyinSaudi] = useState("Select");
   const [Building_number, setBuilding_number] = useState("");
   const [Room_number, setRoom_number] = useState("");
+  const [gender, setGender] = useState("");
 
   const [Nextofkin_mobile, setNextofkin_mobile] = useState("");
   // const [Nextofkin_city, setNextofkin_city] = useState("");
@@ -349,7 +350,7 @@ function Register() {
 
   const validateForm = () => {
    
-    if (!Surname || !First_name || Degree === "select" || !College || !Phone_number || !auth_email || !auth_password || !Nextofkin_mobile ) {
+    if (!Surname || !First_name || Degree === "select" || !College || !Phone_number || !auth_email || !auth_password   ) {
       toast.error("Please fill all required fields");
       return false;
     }
@@ -374,6 +375,7 @@ function Register() {
       return false;
     }
 
+     
    
     if (FamilyinSaudi === "Yes" && !Address) {
       toast.error("Please enter address if family is in Saudi Arabia");
@@ -420,6 +422,7 @@ function Register() {
     formdata.append("FamilyinSaudi", FamilyinSaudi);
     formdata.append("Building_number", Building_number);
     formdata.append("Room_number", Room_number);
+    
    
     formdata.append("Nextofkin_mobile", Nextofkin_mobile);
    
@@ -430,9 +433,11 @@ function Register() {
     formdata.append("auth_password", auth_password);
     formdata.append("verify_token", verify_token);
     formdata.append("email_sent_condition_met", true);
+    formdata.append("gender", gender)
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/nsu/", formdata);
+      const SelectGender= gender === "Female"? "http://127.0.0.1:8000/female/" : "http://127.0.0.1:8000/nsu/"
+      const response = await axios.post(SelectGender, formdata);
       if (response.status === 201) {
         toast.success("Data successfully uploaded");
         navigate("/otp");
@@ -450,6 +455,7 @@ function Register() {
     e.preventDefault();
     Submit();
   }
+  
 
   return (
     <form className="container w-auto mt-5 min-vh-100" onSubmit={SubmitForm} style={{ marginBottom: "4rem" }}>
@@ -457,6 +463,18 @@ function Register() {
         <div className="card">
           <h3 className="card-header mb-3">Personal Details</h3>
           <div className="container">
+          <div className="mb-3">
+              <label className="form-label">Gender</label>
+              <select
+                className="form-select"
+                required
+                onChange={(e) => setGender(e.target.value)}
+              >
+                <option defaultValue="Select">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
             <div className="mb-3">
               <label className="form-label">Surname</label>
               <input

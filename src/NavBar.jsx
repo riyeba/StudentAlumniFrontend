@@ -1,10 +1,35 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 
 
 function NavBar() {
+
+  const [active, setActive] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/logo/");
+        setActive(response.data);
+        setIsLoading(false);
+        
+      } catch (error) {
+        // Handle errors if needed
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  
+  const active2=active.reverse()
+ console.log(active2)
 
   const UserLoginStatus=localStorage.getItem('UserLoginStatus')
   const UserLoginStatu=localStorage.getItem('UserLoginStatu')
@@ -19,12 +44,15 @@ function NavBar() {
     localStorage.removeItem('UserLoginStatu') 
     window.location.href='/loginal'     
   }
+
+
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-light sticky-top">
     <div className="container">
       <div className=" d-flex gap-1">
       <div className="my-1">
-      <LazyLoadImage src='nsulogo.jpg' width="30" className="rounded-circle"/>
+      <img src={active2[0]?.photo} width="30" className="rounded-circle"/>
       </div>
       <Link className="navbar-brand text-dark fw-bold" to="/"> NSU-KSU </Link>
       </div>

@@ -31,6 +31,10 @@ function OTP() {
             localStorage.setItem("verify_id", response.data.verify);
             // window.location.href = "/login";
             navigate("/login")
+          }else if(response.data.booll === true){
+            localStorage.setItem("UserLoginStatus", true);
+            localStorage.setItem("verify_idd", response.data.verifyy);
+            navigate("/login")
           }
       }).catch((error) => {
         toast.error("invalid")

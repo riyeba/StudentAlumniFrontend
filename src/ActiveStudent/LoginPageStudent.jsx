@@ -65,7 +65,14 @@ function SignIn() {
           toast.success("Successfully logged in");
           localStorage.setItem('active_id', res.data.active_idd);
           navigate('/admin');
-        } else {
+          
+        } else if (res.data.boolll) {
+          toast.success("Successfully logged in");
+          localStorage.setItem('active_id', res.data.active_idd);
+          navigate('/femalepage');
+        }
+        
+        else {
           toast.error("either your login email or password is incorrect");
         }
       })

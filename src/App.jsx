@@ -50,6 +50,9 @@ import PresSpeech from "./Home/PresidentSpeech";
 import Excos from "./Home/Excos";
 import RecentEvents from "./Home/RecentEvent";
 import UpcomingEvents from "./Home/UploadUpcoming";
+import Logo from "./Home/UplaodLogo";
+import FemaleStudent from "./FemaleActive/FemaleStudent";
+
 
 
 
@@ -104,6 +107,8 @@ function App() {
           <Route path="/exco" element={< Excos/>} /> 
           <Route path="/event" element={< RecentEvents/>} /> 
           <Route path="/upcomings" element={< UpcomingEvents/>} />
+          <Route path="/logo" element={< Logo/>} /> 
+          <Route path="/femalepage" element={< FemaleStudent/>} /> 
           
           
         </Routes>

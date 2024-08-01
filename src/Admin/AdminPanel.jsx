@@ -50,6 +50,12 @@ function SiteAdmin() {
                   Attendance
                 </Link>
               </div>
+              <div className="list-group-item list-group-item-action d-flex gap-2">
+                <i className="bi bi-person-fill-dash"></i>
+                <Link to="/logo" className="text-black text-decoration-none ">
+                  Upload Logo
+                </Link>
+              </div>
 
              
              
