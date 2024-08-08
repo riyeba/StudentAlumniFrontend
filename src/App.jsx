@@ -52,6 +52,14 @@ import RecentEvents from "./Home/RecentEvent";
 import UpcomingEvents from "./Home/UploadUpcoming";
 import Logo from "./Home/UplaodLogo";
 import FemaleStudent from "./FemaleActive/FemaleStudent";
+import EditProfilef from "./FemaleActive/EditFemale";
+import FemaleStudents from "./FemaleActive/DashboardFemale";
+import IndividualFemale from "./FemaleActive/IndividualFemale";
+import AdminActivestudents from "./Admin/AdminActivestudent";
+import AdminSecondbashboard from "./Admin/AdminSecondboardmale";
+import EditPassfemale from "./FemaleActive/Editpassfemale";
+import Forgototpf from "./FemaleActive/Editpassotp";
+import ForgotOTPf from "./FemaleActive/Editpassverify";
 
 
 
@@ -74,8 +82,8 @@ function App() {
 
           <Route path="/otp" element={<OTP />} />
           <Route path="/login" element={<SignIn />} />
-          <Route path="/sboard/:member_id" element={<SecondDashBoard />} />
-          <Route path="/password" element={<Forgot />} />
+          <Route path="/sboard/:member_id" element={<SecondDashBoard />} /> 
+          <Route path="/password" element={<Forgot />} /> 
           <Route path="/updatepassword" element={<EditPass />} />
           <Route path="/forgototp" element={<ForgotOTP />} />
           <Route path="/edit" element={<EditProfile />} />
@@ -108,7 +116,15 @@ function App() {
           <Route path="/event" element={< RecentEvents/>} /> 
           <Route path="/upcomings" element={< UpcomingEvents/>} />
           <Route path="/logo" element={< Logo/>} /> 
-          <Route path="/femalepage" element={< FemaleStudent/>} /> 
+          <Route path="/femalepage" element={< FemaleStudent/>} />    
+          <Route path="/editfemale" element={< EditProfilef/>} />  
+          <Route path="/femaleb" element={< FemaleStudents/>} />  
+          <Route path="/sboardf/:member_id" element={<IndividualFemale />} /> 
+          <Route path="/editpasswordf" element={<EditPassfemale />} /> 
+          <Route path="/passwordf" element={<Forgototpf />} /> 
+          <Route path="/activeadmin" element={<AdminActivestudents />} />
+          <Route path="/sboardmale/:member_id" element={<AdminSecondbashboard />} /> 
+          <Route path="/forgototpf" element={<ForgotOTPf />} />
           
           
         </Routes>

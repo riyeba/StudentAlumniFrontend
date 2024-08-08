@@ -4,8 +4,14 @@ import { Link, NavLink } from "react-router-dom";
 import RecentEvent from "./Moving";
 import Upcoming from "./UpcomingEvent";
 import axios from "axios";
+import Aos from "aos"
+import 'aos/dist/aos.css'
 
 function LandingPage() {
+
+  useEffect(()=>{
+     Aos.init();
+  },[])
 
   const [active, setActive] = useState([]);
   const [excodata, setExcodata] = useState([]);
@@ -71,7 +77,7 @@ function LandingPage() {
             {/* <h5 className="card-title">Special title treatment</h5> */}
             <p
               className="card-text  "
-              style={{ fontSize: "1.2rem", textAlign: "justify" }}
+              style={{ fontSize: "16px", textAlign: "justify" }}
             >
              {active2[0]?.text}
             </p>
@@ -92,17 +98,17 @@ function LandingPage() {
         </div>
 
       
-        <section className="container-fluid text-nowrap  ">
+        <section className="container-fluid text-nowrap " >
           <div
-            className="d-flex justify-content-center container flex-wrap "
+            className="d-flex justify-content-center container-fluid flex-wrap "
             style={{ width: "70%" }}
           >
-           {excodata.map((el)=><div className="text-center m-4 " key={el.id}>
+           {excodata.map((el)=><div className="text-center m-4 p-2 card  shadow-sm" key={el.id}  style={{width:"18rem"}} data-aos='zoom-in'>
               <img
                 src={el.photo}
-                className=""
+                className="mx-auto"
                 alt="..."
-                style={{ width: "12rem", height:'15rem'}}
+                style={{ width: "8rem", height:'10rem'}}
               />
               <div className=" fs-6">
                 <h5
@@ -121,7 +127,7 @@ function LandingPage() {
                 <p className="" style={{ marginBottom: "0.1rem" }}>
                   Program : {el.degree}
                 </p>
-                <p className="">Mobile/Whatsapp : {el.mobile}</p>
+                <p className="">Mobile: {el.mobile}</p>
                 {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
               </div>
             </div>)}
@@ -145,7 +151,7 @@ function LandingPage() {
                   Recent Events
                 </h3>
               </div>
-              <div className="text-center  "  style={{marginTop:"3.5rem"}}>
+              <div className="text-center  "  style={{marginTop:"3.5rem"}} data-aos='zoom-in'>
                 <div > <RecentEvent/></div>
               </div>
             </section>
@@ -154,12 +160,12 @@ function LandingPage() {
             <div>
                 <h3
                   className="text-center "
-                  style={{ marginTop: "10rem", fontSize: "2rem" }}
+                  style={{ marginTop: "4rem", fontSize: "2rem" }}
                 >
                   Upcoming Event
                 </h3>
               </div>
-              <div className="text-center mt-3">
+              <div className="text-center "  >
                 <div ><Upcoming/></div>
               </div>
             </section>

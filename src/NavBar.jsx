@@ -48,13 +48,13 @@ function NavBar() {
 
   
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-light sticky-top">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark  sticky-top">
     <div className="container">
       <div className=" d-flex gap-1">
       <div className="my-1">
       <img src={active2[0]?.photo} width="30" className="rounded-circle"/>
       </div>
-      <Link className="navbar-brand text-dark fw-bold" to="/"> NSU-KSU </Link>
+      <Link className="navbar-brand text-white fw-bold" to="/"> NSU-KSU </Link>
       </div>
       
       <button className="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" >
@@ -62,7 +62,7 @@ function NavBar() {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav ms-auto">
-          <Link className="nav-link active text-dark fs-5" aria-current="page" to="/home">Login</Link>
+          <Link className="nav-link active text-white fs-5" aria-current="page" to="/home">Login</Link>
          
           {UserLoginStatus==='true'? <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

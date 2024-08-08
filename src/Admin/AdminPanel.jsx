@@ -88,7 +88,7 @@ function SiteAdmin() {
   <div className="card-body text-center">
     <h5 className="card-title">Female Students</h5>
     <p className="card-text">20</p>
-    <a href="#" className="btn btn-success">Check</a>
+    <Link to="/femaleb" className="btn btn-success">Check</Link>
   </div>
 </div>
 
@@ -100,14 +100,7 @@ function SiteAdmin() {
     <Link to="/alumniinfo" className="btn btn-success">Check</Link>
   </div>
 </div>
-{/* <div className="card"  style={{ width: '12rem', height:'9rem' }}>
- 
-  <div className="card-body text-center">
-    <h5 className="card-title">Alumni (Females)</h5>
-    <p className="card-text ">20</p>
-    <a href="#" className="btn btn-success">Check</a>
-  </div>
-</div> */}
+
 
 
 

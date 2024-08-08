@@ -85,14 +85,8 @@ function StudentsDashboardadmin() {
           <div className="card mt-3">
             <h3 className="card-header">Next of Kin</h3>
             <div className="p-2 ">
-              <div className="d-flex gap-2 ">
-                <p className="flex-shrink-1 ">Name :</p>
-                <p>{dash?.Emergency_FirstName}</p>
-              </div>
-              <div className="d-flex gap-2 ">
-                <p className="flex-shrink-1 ">City :</p>
-                <p>{dash?.Nextofkin_city}</p>
-              </div>
+             
+              
 
               <div className="d-flex gap-2">
                 <p className="flex-shrink-1">Mobile :</p>

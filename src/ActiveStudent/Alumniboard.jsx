@@ -88,7 +88,7 @@ function AlumniDashBoard() {
                 <p>{data?.Phone_number}</p>
               </div>
               <div className="d-flex gap-2">
-                <p className="flex-shrink-1">Country:</p>
+                <p className="flex-shrink-1">Country of residence:</p>
                 <p>{data?.Residence_Country}</p>
               </div>
               <div className="d-flex gap-1">

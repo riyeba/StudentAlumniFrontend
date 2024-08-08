@@ -34,7 +34,8 @@ function RecentEvent() {
       {eventdata?.map((el)=><Carousel.Item key={el.id}>
         <div >
         <img src={el.photo} 
-        className="w-100"
+       
+        style={{ width: "13rem", height:'13rem'}}
         alt="..."
         />
         </div>
