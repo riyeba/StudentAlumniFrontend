@@ -4,11 +4,16 @@ import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 function SiteAdmin() {
-
+  const [activeal, setActiveal] = useState([]);
+  
+  const [isLoadingal, setIsLoadingal] = useState(true);
 
   const [activemale, setActive] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [activef, setActivef] = useState([]);
+  
+  const [isLoadingf, setIsLoadingf] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,9 +33,7 @@ function SiteAdmin() {
   }, []);
 
 
-  const [activef, setActivef] = useState([]);
   
-  const [isLoadingf, setIsLoadingf] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,6 +41,25 @@ function SiteAdmin() {
         const response = await axios.get("http://127.0.0.1:8000/female/");
         setActivef(response.data);
         setIsLoadingf(false);
+        console.log(response);
+      } catch (error) {
+        // Handle errors if needed
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+ 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/nsual/");
+        setActiveal(response.data);
+        setIsLoadingal(false);
         console.log(response);
       } catch (error) {
         // Handle errors if needed
@@ -161,7 +183,7 @@ function SiteAdmin() {
             <div className="card" style={{ width: "12rem", height: "9rem" }}>
               <div className="card-body text-center">
                 <h5 className="card-title ">Alumni</h5>
-                <p className="card-text ">20</p>
+                <p className="card-text" style={{ color:"red" }}>{activeal.length}</p>
                 <Link to="/alumniinfo" className="btn btn-success">
                   Check
                 </Link>
