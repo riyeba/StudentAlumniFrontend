@@ -54,7 +54,7 @@ function IndividualFemale() {
             <h5 className="card-header">Menu</h5>
 
             <div className="list-group list-group-flush ">
-              <Link to="/board" className="list-group-item list-group-item-action">
+              <Link to="/admin" className="list-group-item list-group-item-action">
                My Dashboard
               </Link>
               
@@ -115,11 +115,11 @@ function IndividualFemale() {
                        <p>
                       {dash?.Room_number}
                     </p>
-                    
-                    
-                    
-                    
                   )}
+                </div>
+                <div className="d-flex gap-2">
+                  <p className="flex-shrink-1">Emergency:</p>
+                  <p>{dash?.Nextofkin_mobile}</p>
                 </div>
               </div>
             </div>

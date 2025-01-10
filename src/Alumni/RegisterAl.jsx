@@ -126,6 +126,9 @@ function RegisterAl() {
                 <option value="Select">Select</option>
                 <option value="Language">Language</option>
                 <option value="Education">Education</option>
+                <option value="Humanity">Law</option>
+                <option value="Humanity">Tourism</option>
+                <option value="Humanity">Sport</option>
                 <option value="Humanity">Humanity</option>
                 <option value="Engineering">Engineering</option>
                 <option value="Science">Science</option>

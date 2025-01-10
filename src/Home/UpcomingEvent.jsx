@@ -37,18 +37,23 @@ const[loading,setIsLoading]=useState(false)
     fetchDataExco();
   }, []);
 
+  const lastItem = Upcoming?.[Upcoming.length - 1]; // Get the last item
+
   return (
     <div style={{ overflow: 'hidden', width: '100%', height: '200px', position: 'relative' }} >
       <div style={{ display: 'flex', width: '100%', height: '100%' }}>
+        
         <div style={carouselContentStyle}>
-          <div className="" style={carouselItemStyle}>
-           {Upcoming?.map((el)=> <div key={el.id}>
-            <h3>{el.date}</h3>
-            <p className='fw-bold fs-4'>{el.title}.</p>
-            
-            </div>)}
-            
-          </div>
+          {loading ? (
+            <p>Loading...</p>
+          ) : lastItem ? (
+            <div className="" style={carouselItemStyle}>
+              <h3>{lastItem.date}</h3>
+              <p className="fw-bold fs-4">{lastItem.title}.</p>
+            </div>
+          ) : (
+            <p>No data available</p>
+          )}
         </div>
       </div>
       <style>
@@ -68,3 +73,5 @@ const[loading,setIsLoading]=useState(false)
 };
 
 export default Upcoming;
+
+

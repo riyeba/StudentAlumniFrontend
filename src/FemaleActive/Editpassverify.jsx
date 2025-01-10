@@ -46,7 +46,7 @@ const navigate=useNavigate()
   return (
     <form className=" container w-auto mt-5 min-vh-100" onSubmit={handleSubmit}>
     <div className="card">
-      <h3 className="card-header mb-3">Enter the code sent to your email</h3>
+      <h3 className="card-header mb-3">Enter the code sent to your email(female)</h3>
       <div className="container">
       <div className="mb-3">
         <input

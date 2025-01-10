@@ -1,11 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { Link } from "react-router-dom";
 
+import { HashLink as Link } from "react-router-hash-link";
 
+const UserLoginStatus=localStorage.getItem('UserLoginStatus')
+const UserLoginStatu=localStorage.getItem('UserLoginStatu')
 
 function NavBar() {
+
 
   const [active, setActive] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -23,16 +26,17 @@ function NavBar() {
         setIsLoading(false);
       }
     };
+    
 
     fetchData();
   }, []);
 
   
-  const active2=active.reverse()
+  
+const active2=active.reverse()
  console.log(active2)
 
-  const UserLoginStatus=localStorage.getItem('UserLoginStatus')
-  const UserLoginStatu=localStorage.getItem('UserLoginStatu')
+ 
   
     
   function LogOut(){
@@ -54,7 +58,7 @@ function NavBar() {
       <div className="my-1">
       <img src={active2[0]?.photo} width="30" className="rounded-circle"/>
       </div>
-      <Link className="navbar-brand text-white fw-bold" to="/"> NSU-KSU </Link>
+      <Link className="navbar-brand text-white" to="/" > NSU-KSU </Link>
       </div>
       
       <button className="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" >
@@ -62,7 +66,23 @@ function NavBar() {
       </button>
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav ms-auto">
-          <Link className="nav-link active text-white fs-5" aria-current="page" to="/home">Login</Link>
+       {UserLoginStatus==='true'? <Link className="nav-link active text-white fs-6 " aria-current="page" to="/"  ><a id="index.html">Home</a></Link> : <Link className="nav-link active text-white fs-6 " aria-current="page" to="#"  ><a id="index.html">Home</a></Link>}
+       {UserLoginStatus==='true' && <Link className="nav-link active text-white fs-6 " aria-current="page" to="/board"  ><a id="index.html">Dashboard</a></Link> }
+        {UserLoginStatus==='true'? "" : <Link className="nav-link active text-white fs-6" aria-current="page" to="#excopage">Excos</Link>}
+       {UserLoginStatus==='true'? "" : <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle text-white"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Events
+          </a>
+          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><Link className="dropdown-item" to="#recentpage" >Recent</Link></li>
+            <li><Link className="dropdown-item" to="#upcomingpage">Upcoming</Link></li>
+           
+          </ul>
+        </li>}
+        {/* <Link className="nav-link active text-white fs-6" aria-current="page" to="/home">Recent-Events</Link>
+        <Link className="nav-link active text-white fs-6" aria-current="page" to="/home">Upcoming-Events</Link> */}
+          {UserLoginStatus==='true'? "" : <Link className="nav-link active text-white fs-6" aria-current="page" to="/home">Login</Link>}
+
          
           {UserLoginStatus==='true'? <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

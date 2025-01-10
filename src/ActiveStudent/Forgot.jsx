@@ -32,6 +32,15 @@ function Forgot() {
           navigate('/forgototp')
           
           
+        }if(res.data.booll==true){
+          // toast.success("successfully login")
+          localStorage.setItem('UserLoginStatus', true)
+          localStorage.setItem('forgot_idd', res.data.forgot_idd)
+          
+          // window.location.href='/forgototp'
+          navigate('/forgototpf')
+        
+        
         }else{
           setLoading(false)
         }

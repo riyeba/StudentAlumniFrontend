@@ -32,12 +32,12 @@ function AlDashBoard() {
     formdata.append("verify_token", verify_token);
 
     axios
-      .post(`https://nsuksu.com.ng/aldeleteotp/${id}/`, formdata, {
-        headers: { Authorization: `Token ${localStorage.getItem("token")}` },
+      .post(`http://127.0.0.1:8000/aldeleteotp/${id}/`, formdata, {
+        headers: { Authorization: `Token ${localStorage.getItem("token")}` }, 
       })
       .then((res) => {
         console.log(res);
-        if (res.status==200) {
+        if (res.status ==200) {
           toast.success("verification codes sent to your email");
           // window.location.href = "/alotpdel";
           navigate("/alotpdel")

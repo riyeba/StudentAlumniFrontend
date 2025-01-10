@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+
+
 
 import RecentEvent from "./Moving";
 import Upcoming from "./UpcomingEvent";
@@ -16,6 +17,7 @@ function LandingPage() {
   const [active, setActive] = useState([]);
   const [excodata, setExcodata] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  // const [active2, setActive2] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,9 +37,11 @@ function LandingPage() {
   }, []);
 
   
-  const active2=active.reverse()
-  console.log(active2)
 
+const active2 = active?.length > 0 ? active[active?.length - 1] : null;
+
+console.log(active2)
+console.log(active)
 
   useEffect(() => {
     const fetchDataExco = async () => {
@@ -63,9 +67,9 @@ function LandingPage() {
   
   
   return (
-    <div className="min-vh-100">
+    <div className="min-vh-100 bg-white">
       <div
-        className="container mt-4  container-fluid "
+        className="container mt-5  container-fluid "
         style={{ width: "100%" }}
       >
         <h3 className="" style={{ fontSize: "2rem" }}>
@@ -77,18 +81,18 @@ function LandingPage() {
             {/* <h5 className="card-title">Special title treatment</h5> */}
             <p
               className="card-text  "
-              style={{ fontSize: "16px", textAlign: "justify" }}
+              style={{ fontSize: "18px", textAlign: "justify" }}
             >
-             {active2[0]?.text}
+             {active2?.text}
             </p>
-            <p className="text-success " style={{ fontSize: "1.6rem" }}>
-              {active2[0]?.name}
+            <p className="text-success fs-5  " >
+              {active2?.name}
             </p>
-            <p className="fs-4" style={{marginTop:"-1rem"}}>NSU-KSU President</p>
+            <p className="fs-5 " style={{marginTop:"-1rem", fontWeight:'500'}}>NSU-KSU President</p>
           </div>
         </div>
 
-        <div>
+        <div id="excopage">
           <h3
             className="text-center "
             style={{ marginTop: "5rem", fontSize: "2rem" }}
@@ -103,7 +107,7 @@ function LandingPage() {
             className="d-flex justify-content-center container-fluid flex-wrap "
             style={{ width: "70%" }}
           >
-           {excodata.map((el)=><div className="text-center m-4 p-2 card  shadow-sm" key={el.id}  style={{width:"18rem"}} data-aos='zoom-in'>
+           {excodata.map((el)=><div className="text-center m-4 p-2 card  shadow-lg border-0" key={el.id}  style={{width:"18rem"}} data-aos='zoom-in'>
               <img
                 src={el.photo}
                 className="mx-auto"
@@ -142,22 +146,23 @@ function LandingPage() {
 
 
 
-            <section>
-            <div>
+            <section >
+            <div id="recentpage">
                 <h3
                   className="text-center "
+                  
                   style={{ marginTop: "5rem", fontSize: "2rem" }}
                 >
                   Recent Events
                 </h3>
               </div>
-              <div className="text-center  "  style={{marginTop:"3.5rem"}} data-aos='zoom-in'>
+              <div className="text-center"  style={{marginTop:"3.5rem"}} data-aos='zoom-in'>
                 <div > <RecentEvent/></div>
               </div>
             </section>
 
             <section>
-            <div>
+            <div id="upcomingpage">
                 <h3
                   className="text-center "
                   style={{ marginTop: "4rem", fontSize: "2rem" }}

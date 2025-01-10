@@ -35,7 +35,7 @@ console.log(active_iddd)
       .then((res) => {
         if (res.status === 200) {
           toast.success("Verification code sent to your email");
-          navigate("/otpdel");
+          navigate("/otpdelf");
         } else {
           setLoading(false);
         }
@@ -121,7 +121,7 @@ console.log(active_iddd)
                   <div className="list-group-item list-group-item-action d-flex gap-2">
                     <i className="bi bi-unlock-fill"></i>
                     <Link
-                      to="/passwordf"
+                      to="/passwordfemalenow"
                       className="text-black text-decoration-none"
                     >
                       Edit Password

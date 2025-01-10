@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="container-fluid  min-vh-100 d-flex align-items-center justify-content-center">
+    <div className="container-fluid  min-vh-100 d-flex align-items-center justify-content-center bg-white">
       <div className="text-center">
         <h1 className="mb-4">Welcome to Nigerian Students' Union</h1>
         <h2 className="mb-4">King Saud University Chapter</h2>

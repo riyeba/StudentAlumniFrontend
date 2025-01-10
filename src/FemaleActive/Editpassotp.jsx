@@ -19,17 +19,17 @@ function Forgototpf() {
     formdata.append("verify_token", verify_token);
 
     axios
-      .post("http://127.0.0.1:8000/forgotf/", formdata, {
+      .post("http://127.0.0.1:8000/forgot/", formdata, {
         headers: { Authorization: `Token ${localStorage.getItem("token")}` },
       })
       .then((res) => {
-        if(res.data.bool==true){
+        if(res.data.booll==true){
           // toast.success("successfully login")
           localStorage.setItem('UserLoginStatus', true)
           localStorage.setItem('forgot_idd', res.data.forgot_idd)
           
           // window.location.href='/forgototp'
-          navigate('/forgototpf')
+          navigate('/forgototpf') 
           
           
         }else{
@@ -52,7 +52,7 @@ function Forgototpf() {
   return (
     <form className=" container w-auto mt-5 min-vh-100" onSubmit={handleSubmit}>
     <div className="card">
-      <h3 className="card-header mb-3">Enter your registered email </h3>
+      <h3 className="card-header mb-3">Enter your registered email (F) </h3>
       <div className="container">
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
@@ -72,11 +72,9 @@ function Forgototpf() {
       
 
       <div className="d-flex gap-4">
-      {UserLoginStatus? <Link to='/board'><button type="submit" className="btn mb-3 btn-secondary" >
+      <Link to='/femalepage'><button type="submit" className="btn mb-3 btn-secondary" >
         Cancel
-      </button></Link> :(<Link to='/login'><button type="submit" className="btn mb-3 btn-secondary" >
-        Cancel
-      </button></Link>)}
+      </button></Link>
       <button type="submit" className="btn mb-3 btn-success" >
         {loading? 'loading...' : 'Submit'}
       </button>
